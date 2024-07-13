@@ -63,6 +63,15 @@ class LinkedList
     string
   end
 
+  def insert_at(value, index)
+    previous_node = at index - 1
+    current_node = previous_node.next_node
+    new_node = Node.new value, current_node
+    previous_node.next_node = new_node
+    @size += 1
+    new_node
+  end
+
   def each
     node = head
     size.times do

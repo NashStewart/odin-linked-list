@@ -41,3 +41,8 @@ puts "'re': #{list.contains? 're'}"
 puts "\nfind():"
 puts list
 puts "'re': #{list.find 're'}"
+
+puts "\ninsert_at():"
+puts list
+puts "'so' at 1: #{list.insert_at('so', 1)}"
+puts list
