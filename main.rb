@@ -30,8 +30,10 @@ list.each_with_index { |_, index| puts list.at index }
 
 puts "\npop():"
 puts "Before: #{list}"
+puts list.size
 puts "Return: #{list.pop}"
 puts "After: #{list}"
+puts list.size
 
 puts "\ncontains?():"
 puts list
@@ -44,5 +46,7 @@ puts "'re': #{list.find 're'}"
 
 puts "\ninsert_at():"
 puts list
+puts list.size
 puts "'so' at 1: #{list.insert_at('so', 1)}"
 puts list
+puts list.size
