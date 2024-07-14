@@ -50,3 +50,10 @@ puts list.size
 puts "'so' at 1: #{list.insert_at('so', 1)}"
 puts list
 puts list.size
+
+puts "\nremove_at():"
+puts list
+puts list.size
+puts "2: #{list.remove_at 2}"
+puts list
+puts list.size

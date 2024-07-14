@@ -77,12 +77,29 @@ class LinkedList
     new_node
   end
 
+  def shift
+    node_to_remove = head
+    @head = node_to_remove.next_node
+    @size -= 1
+    node_to_remove
+  end
+
+  def remove_at(index)
+    return nil if index.negative? || index > size - 1
+    return pop if index == size - 1
+    return shift if index.zero?
+
+    previous_node = at index - 1
+    node_to_remove = previous_node.next_node
+    next_node = node_to_remove.next_node
+    previous_node.delete_next
+    previous_node.next_node = next_node
+    @size -= 1
+    node_to_remove
+  end
+
   def each
-    node = head
-    size.times do
-      yield node
-      node = node.next_node
-    end
+    each_with_index { |node, _| yield node }
   end
 
   def each_with_index
