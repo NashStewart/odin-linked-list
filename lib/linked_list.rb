@@ -30,6 +30,8 @@ class LinkedList
   end
 
   def at(index)
+    return nil unless index_in_bounds? index
+
     node = head
     index.times do
       node = node.next_node
@@ -66,6 +68,7 @@ class LinkedList
   end
 
   def insert_at(value, index)
+    return nil unless index_in_bounds? index
     return prepend(value) if index.zero?
     return append(value) if index == size
 
@@ -85,7 +88,7 @@ class LinkedList
   end
 
   def remove_at(index)
-    return nil if index.negative? || index > size - 1
+    return nil unless index_in_bounds? index
     return pop if index == size - 1
     return shift if index.zero?
 
@@ -108,5 +111,11 @@ class LinkedList
       yield node, index
       node = node.next_node
     end
+  end
+
+  private
+
+  def index_in_bounds?(index)
+    index >= 0 && index < size
   end
 end
